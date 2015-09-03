@@ -11,7 +11,7 @@
 .button-spacer
 
 .animals-in-zoo
-  - if @zoo.animals.empty?
+  - if @animals.empty?
     .animals-heading No Animals Yet
 
   - else
@@ -20,7 +20,7 @@
     %table.zoo-animals
       %th Name
       %th Species
-      - @zoo.animals.each do |animal|
+      - @animals.each do |animal|
         %tr
           %td.animal-name-in-table
             %a{href: edit_zoo_animal_path(animal, zoo_id: @zoo.id)}

@@ -2,14 +2,13 @@ class ZoosController < ApplicationController
   before_action :set_zoo, only: [:show, :edit, :update, :destroy]
 
   # GET /zoos
-  # GET /zoos.json
   def index
-    @zoos = Zoo.all
+    @zoos = Zoo.with_species_count
   end
 
   # GET /zoos/1
-  # GET /zoos/1.json
   def show
+    @animals = @zoo.animals.order(:species)
   end
 
   # GET /zoos/new
@@ -22,42 +21,34 @@ class ZoosController < ApplicationController
   end
 
   # POST /zoos
-  # POST /zoos.json
   def create
     @zoo = Zoo.new(zoo_params)
 
     respond_to do |format|
       if @zoo.save
         format.html { redirect_to @zoo, notice: 'Zoo was successfully created.' }
-        format.json { render :show, status: :created, location: @zoo }
       else
         format.html { render :new }
-        format.json { render json: @zoo.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PATCH/PUT /zoos/1
-  # PATCH/PUT /zoos/1.json
   def update
     respond_to do |format|
       if @zoo.update(zoo_params)
         format.html { redirect_to @zoo, notice: 'Zoo was successfully updated.' }
-        format.json { render :show, status: :ok, location: @zoo }
       else
         format.html { render :edit }
-        format.json { render json: @zoo.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /zoos/1
-  # DELETE /zoos/1.json
   def destroy
     @zoo.destroy
     respond_to do |format|
       format.html { redirect_to zoos_url, notice: 'Zoo was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

@@ -1,3 +1,7 @@
+.inline{
+  display: inline;
+}
+
 h1{
   font-size: 3rem;
 }
@@ -40,4 +44,8 @@ h1{
 
 table.zoo-animals{
   padding-bottom: 0.5rem;
+}
+
+.unique-species-count{
+  padding-left: 1rem;
 }
