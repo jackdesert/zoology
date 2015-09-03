@@ -1,4 +1,4 @@
-<%= form_for(@animal) do |f| %>
+<%= form_for(@animal, url: zoo_animals_path) do |f| %>
   <% if @animal.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@animal.errors.count, "error") %> prohibited this animal from being saved:</h2>
@@ -14,10 +14,6 @@
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :zoo_id %><br>
-    <%= f.number_field :zoo_id %>
   </div>
   <div class="field">
     <%= f.label :species %><br>

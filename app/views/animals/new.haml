@@ -1,0 +1,7 @@
+%h1
+  New Animal for
+  = zoo_name(@zoo)
+
+= render 'form'
+
+= link_to 'Back', zoo_animals_path(@zoo)

@@ -1,6 +1,6 @@
 %p{id: 'notice'}= notice
 
-%h1 Zoos
+%h1 All Our Zoos
 
 %table
   %thead
@@ -11,10 +11,10 @@
   %tbody
     - @zoos.each do |zoo|
       %tr
-        %td= zoo.name
-        %td= link_to 'Show', zoo
-        %td= link_to 'Edit', edit_zoo_path(zoo)
-        %td= link_to 'Destroy', zoo, method: :delete, data: { confirm: 'Are you sure?' }
+        %td
+          %a{href: zoo_path(zoo)}= zoo.name
+        /%td= link_to 'Edit', edit_zoo_path(zoo)
+        /%td= link_to 'Destroy', zoo, method: :delete, data: { confirm: 'Are you sure?' }
 %br
 
-= link_to 'New Zoo', new_zoo_path
+= link_to 'Add a Zoo', new_zoo_path
