@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @animal.name %>
+</p>
+
+<p>
+  <strong>Zoo:</strong>
+  <%= @animal.zoo_id %>
+</p>
+
+<p>
+  <strong>Species:</strong>
+  <%= @animal.species %>
+</p>
+
+<%= link_to 'Edit', edit_zoo_animal_path(@animal, zoo_id: @zoo.id) %> |
+<%= link_to 'Back', zoo_animals_path(zoo_id: @zoo.id) %>
