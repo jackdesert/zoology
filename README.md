@@ -19,3 +19,7 @@ Start Server
     bundle exec rails server
 
 Open localhost:3000 in browser
+
+Push it to Heroku
+
+    https://stormy-forest-3372.herokuapp.com/ | https://git.heroku.com/stormy-forest-3372.git
