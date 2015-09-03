@@ -26,7 +26,7 @@ class ZoosController < ApplicationController
 
     respond_to do |format|
       if @zoo.save
-        format.html { redirect_to @zoo, notice: 'Zoo was successfully created.' }
+        format.html { redirect_to zoos_path, notice: 'Zoo was successfully created.' }
       else
         format.html { render :new }
       end

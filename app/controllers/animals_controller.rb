@@ -1,15 +1,11 @@
 class AnimalsController < ApplicationController
-  before_action :set_animal, only: [:show, :edit, :update, :destroy]
+  before_action :set_animal, only: [:edit, :update, :destroy]
   before_action :set_zoo
 
   # GET /animals
   def index
     @animals = @zoo.animals
     a = 5
-  end
-
-  # GET /animals/1
-  def show
   end
 
   # GET /animals/new
@@ -38,7 +34,7 @@ class AnimalsController < ApplicationController
   def update
     respond_to do |format|
       if @animal.update(animal_params)
-        format.html { redirect_to @animal, notice: 'Animal was successfully updated.' }
+        format.html { redirect_to zoo_path(@zoo), notice: 'Animal was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -49,7 +45,7 @@ class AnimalsController < ApplicationController
   def destroy
     @animal.destroy
     respond_to do |format|
-      format.html { redirect_to animals_url, notice: 'Animal was successfully destroyed.' }
+      format.html { redirect_to @zoo, notice: "#{animal.name} was successfully destroyed." }
     end
   end
 

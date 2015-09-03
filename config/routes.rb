@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :zoos do
-    resources :animals
+    resources :animals, except: :show
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

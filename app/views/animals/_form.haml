@@ -1,0 +1,21 @@
+= form_for(@animal, url: zoo_animals_path(@zoo)) do |f|
+  - if @animal.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@animal.errors.count, "error")
+        prohibited this animal from being saved:
+
+      %ul
+        - @animal.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    %br
+    = f.text_field :name
+  .field
+    = f.label :species
+    %br
+    = f.text_field :species
+  .actions
+    = f.submit
