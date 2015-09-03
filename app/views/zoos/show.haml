@@ -1,23 +1,6 @@
 %p{id: 'notice'}
 
-%p
-  %strong= zoo_name(@zoo)
-
-- if @zoo.animals.empty?
-  .animals-heading No Animals Yet
-
-- else
-
-  %table.zoo-animals
-    %th Name
-    %th Species
-    - @zoo.animals.each do |animal|
-      %tr
-        %td= animal.name
-        %td= animal.species
-
-%a{href: new_zoo_animal_path(@zoo)}
-  %button Add an Animal
+%h1= zoo_name(@zoo)
 
 %a{href: edit_zoo_path(@zoo)}
   %button Rename Zoo
@@ -25,7 +8,33 @@
 %a{href: zoo_path(@zoo), data: { method: :delete, confirm: "Really delete #{zoo_name(@zoo)} and #{@zoo.animals.count} animals?" }}
   %button Destroy Zoo
 
+.button-spacer
+
+.animals-in-zoo
+  - if @zoo.animals.empty?
+    .animals-heading No Animals Yet
+
+  - else
+
+    .animals-heading Animals Currently Residing:
+    %table.zoo-animals
+      %th Name
+      %th Species
+      - @zoo.animals.each do |animal|
+        %tr
+          %td.animal-name-in-table
+            %a{href: edit_zoo_animal_path(animal, zoo_id: @zoo.id)}
+              .animal-name= animal.name
+          %td.animal-species-in-table= animal.species
+
+  %a{href: new_zoo_animal_path(@zoo)}
+    %button Add an Animal
+
+.button-spacer
+
 %a{href: zoos_path}
   %button Back to All Zoos
+
+
 
 

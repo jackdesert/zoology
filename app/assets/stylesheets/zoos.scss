@@ -1,0 +1,43 @@
+h1{
+  font-size: 3rem;
+}
+
+.animals-heading{
+  font-size: 2rem;
+  padding-bottom: 1rem;
+  margin-left: -2rem;
+}
+
+.animal-name-in-table{
+  padding: 0.2rem;
+}
+
+.animal-species-in-table{
+  padding: 0.2rem 1rem;
+}
+
+.zoo-name, .animal-name{
+  font-size: 1.5rem;
+  padding: 0.2rem;
+  &:hover{
+    background-color: black;
+  }
+}
+
+.animal-name{
+  text-align: right;
+}
+
+
+.button-spacer{
+  width: 1rem;
+  height: 2.5rem;
+}
+
+.animals-in-zoo{
+  padding-left: 4rem;
+}
+
+table.zoo-animals{
+  padding-bottom: 0.5rem;
+}

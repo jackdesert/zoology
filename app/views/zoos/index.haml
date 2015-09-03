@@ -12,9 +12,9 @@
     - @zoos.each do |zoo|
       %tr
         %td
-          %a{href: zoo_path(zoo)}= zoo.name
-        /%td= link_to 'Edit', edit_zoo_path(zoo)
-        /%td= link_to 'Destroy', zoo, method: :delete, data: { confirm: 'Are you sure?' }
-%br
+          %a{href: zoo_path(zoo)}
+            .zoo-name= zoo_name(zoo)
+.button-spacer
 
-= link_to 'Add a Zoo', new_zoo_path
+%a{href: new_zoo_path}
+  %button Add Another Zoo
