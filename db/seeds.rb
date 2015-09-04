@@ -6,7 +6,7 @@ ZOO_NAMES = ['San Francisco', 'New Orleans', 'Milwaukee', 'Seattle', 'Mississipp
 ANIMAL_SPECIES = ['monkey', 'pterodactyl', 'octopus', 'bat', 'beaver', 'butterfly', 'firefly', 'fox', 'kangaroo', 'mandrill', 'muskox', 'penguin', 'sandpiper', 'wolverine']
 
 
-if Rails.env == 'development'
+if Rails.env == 'development' || ENV['ALLOW_SEED']
   puts "Warning...About to destroy all zoos and all animals"
   sleep 2
   Zoo.destroy_all
