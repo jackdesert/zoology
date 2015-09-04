@@ -1,4 +1,4 @@
-= form_for(@animal, url: zoo_animals_path(@zoo)) do |f|
+= form_for(@animal, url: zoo_animal_path(@zoo, @animal)) do |f|
   - if @animal.errors.any?
     #error_explanation
       %h2

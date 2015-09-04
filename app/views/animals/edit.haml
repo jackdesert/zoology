@@ -2,7 +2,7 @@
 
 = render 'form'
 
-= link_to 'Back', zoo_animals_path(zoo_id: @zoo.id)
+= link_to 'Back', @zoo
 %a{href: zoo_animal_path(@animal, zoo_id: @zoo.id), data: { method: :delete, confirm: "Really delete #{@animal.name}?" }}
   %button Destroy Animal
 
