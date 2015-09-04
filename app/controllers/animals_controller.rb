@@ -1,6 +1,8 @@
 class AnimalsController < ApplicationController
   before_action :set_animal, only: [:edit, :update, :destroy]
   before_action :set_zoo
+  before_action :set_form_path_new, only: [:new, :create]
+  before_action :set_form_path_existing, only: [:edit, :update]
 
   # GET /animals
   def index
@@ -11,12 +13,10 @@ class AnimalsController < ApplicationController
   # GET /animals/new
   def new
     @animal = Animal.new
-    @form_path = zoo_animals_path(@zoo)
   end
 
   # GET /animals/1/edit
   def edit
-    @form_path = zoo_animal_path(@zoo, @animal)
   end
 
   # POST /animals
@@ -53,18 +53,28 @@ class AnimalsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_animal
-      @animal = Animal.find(params[:id])
-    end
 
-    def set_zoo
-      @zoo = Zoo.find(params[:zoo_id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_animal
+    @animal = Animal.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def animal_params
-      hash = params.require(:animal).permit(:name, :zoo_id, :species)
-      hash.merge(zoo_id: params[:zoo_id])
-    end
+  def set_zoo
+    @zoo = Zoo.find(params[:zoo_id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def animal_params
+    hash = params.require(:animal).permit(:name, :zoo_id, :species)
+    hash.merge(zoo_id: params[:zoo_id])
+  end
+
+  def set_form_path_new
+    @form_path = zoo_animals_path(@zoo)
+  end
+
+  def set_form_path_existing
+    @form_path = zoo_animal_path(@zoo, @animal)
+  end
+
 end
