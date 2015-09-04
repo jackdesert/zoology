@@ -4,4 +4,5 @@
 
 = render 'form'
 
-= link_to 'Back', @zoo
+%a{href: zoo_path(@zoo)}
+  %button Cancel

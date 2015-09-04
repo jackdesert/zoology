@@ -11,10 +11,12 @@ class AnimalsController < ApplicationController
   # GET /animals/new
   def new
     @animal = Animal.new
+    @form_path = zoo_animals_path(@zoo)
   end
 
   # GET /animals/1/edit
   def edit
+    @form_path = zoo_animal_path(@zoo, @animal)
   end
 
   # POST /animals
@@ -32,6 +34,7 @@ class AnimalsController < ApplicationController
 
   # PATCH/PUT /animals/1
   def update
+
     respond_to do |format|
       if @animal.update(animal_params)
         format.html { redirect_to @zoo, notice: 'Animal was successfully updated.' }
